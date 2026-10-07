@@ -5,27 +5,36 @@ function TaskList({
   deleteTask,
   toggleTask,
   filter,
-  setFilter
+  setFilter,search, setSearch
 }) {
 
 
   const filteredTasks = tasks.filter((task) => {
 
-    if (filter === "active") {
-      return !task.completed;
-    }
+    const matchesSearch = task.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
   
-    if (filter === "completed") {
-      return task.completed;
-    }
+    const matchesFilter =
+      filter === "all" ||
+      (filter === "active" && !task.completed) ||
+      (filter === "completed" && task.completed);
   
-    return true;
+    return matchesSearch && matchesFilter;
   });
 
   return (
     <section className="tasks">
 
       <h2>Tasks</h2>
+
+
+      <input
+      type="text"
+      placeholder="Search tasks..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
 
       <div className="filters">
 

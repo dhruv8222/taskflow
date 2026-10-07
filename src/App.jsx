@@ -59,6 +59,8 @@ function App() {
 
   const [filter, setFilter] = useState("all");
 
+  const [search, setSearch] = useState("");
+
   console.log(tasks);
 
   return (
@@ -77,6 +79,8 @@ function App() {
   toggleTask={toggleTask}
   filter={filter}
   setFilter={setFilter}
+  search={search}
+  setSearch={setSearch}
 />
 
       </main>
