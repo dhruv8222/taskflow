@@ -3,12 +3,24 @@ import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Stats from "./components/Stats";
 import TaskList from "./components/TaskList";
+import AddTask from "./components/AddTask";
 import { useState } from "react";
 
 
 
 function App() {
 
+  const addTask = (title, priority) => {
+
+    const newTask = {
+      id: Date.now(),
+      title: title,
+      priority: priority,
+      completed: false
+    };
+  
+    setTasks([...tasks, newTask]);
+  };
 
   const [tasks, setTasks] = useState([
     {
@@ -41,6 +53,7 @@ function App() {
       <main className="main-content">
 
         <Header />
+        <AddTask addTask={addTask} />
         <Stats />
         <TaskList tasks = {tasks}/>
 
