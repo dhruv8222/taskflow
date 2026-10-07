@@ -1,23 +1,34 @@
-function Stats() {
+function Stats({ tasks }) {
+
+  const total = tasks.length;
+
+  const completed = tasks.filter(
+    task => task.completed
+  ).length;
+
+  const active = tasks.filter(
+    task => !task.completed
+  ).length;
+
   return (
-    <section className="stats">
+    <div className="stats">
 
-      <div className="stat-card">
+      <div className="stat">
         <h3>Total</h3>
-        <p>0</p>
+        <p>{total}</p>
       </div>
 
-      <div className="stat-card">
+      <div className="stat">
         <h3>Active</h3>
-        <p>0</p>
+        <p>{active}</p>
       </div>
 
-      <div className="stat-card">
+      <div className="stat">
         <h3>Completed</h3>
-        <p>0</p>
+        <p>{completed}</p>
       </div>
 
-    </section>
+    </div>
   );
 }
 

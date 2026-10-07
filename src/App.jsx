@@ -57,6 +57,8 @@ function App() {
     }
   ]);
 
+  const [filter, setFilter] = useState("all");
+
   console.log(tasks);
 
   return (
@@ -68,11 +70,13 @@ function App() {
 
         <Header />
         <AddTask addTask={addTask} />
-        <Stats />
+        <Stats tasks={tasks} />
         <TaskList
   tasks={tasks}
   deleteTask={deleteTask}
   toggleTask={toggleTask}
+  filter={filter}
+  setFilter={setFilter}
 />
 
       </main>
