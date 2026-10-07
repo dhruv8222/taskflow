@@ -6,7 +6,7 @@ function Header() {
         <p>Manage your tasks efficiently</p>
       </div>
 
-      <button>Add Task</button>
+      {/* <button>Add Task</button> */}
     </header>
   );
 }

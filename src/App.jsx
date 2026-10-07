@@ -22,6 +22,10 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -55,7 +59,8 @@ function App() {
         <Header />
         <AddTask addTask={addTask} />
         <Stats />
-        <TaskList tasks = {tasks}/>
+        <TaskList tasks = {tasks}
+        deleteTask={deleteTask}/>
 
       </main>
 

@@ -1,7 +1,7 @@
 import TaskCard from "./TaskCard";
 
-function TaskList({ tasks }) {
-  return (
+function TaskList({ tasks, deleteTask }) {
+    return (
     <section className="tasks">
 
       <h2>Tasks</h2>
@@ -10,6 +10,7 @@ function TaskList({ tasks }) {
         <TaskCard
           key={task.id}
           task={task}
+          deleteTask={deleteTask}
         />
       ))}
 
