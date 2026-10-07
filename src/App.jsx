@@ -26,6 +26,16 @@ function App() {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
+  const toggleTask = (id) => {
+    setTasks(
+      tasks.map(task =>
+        task.id === id
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    );
+  };
+
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -59,8 +69,11 @@ function App() {
         <Header />
         <AddTask addTask={addTask} />
         <Stats />
-        <TaskList tasks = {tasks}
-        deleteTask={deleteTask}/>
+        <TaskList
+  tasks={tasks}
+  deleteTask={deleteTask}
+  toggleTask={toggleTask}
+/>
 
       </main>
 

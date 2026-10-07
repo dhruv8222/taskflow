@@ -92,3 +92,8 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.task-card.completed h3 {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

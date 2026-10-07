@@ -1,6 +1,10 @@
-function TaskCard({ task, deleteTask }) {
+function TaskCard({ task, deleteTask, toggleTask }) {
     return (
-    <div className="task-card">
+      <div
+      className={`task-card ${
+        task.completed ? "completed" : ""
+      }`}
+    >
 
       <h3>{task.title}</h3>
 
@@ -8,6 +12,10 @@ function TaskCard({ task, deleteTask }) {
 
       <button onClick={() => deleteTask(task.id)}>
   Delete
+</button>
+
+<button onClick={() => toggleTask(task.id)}>
+  {task.completed ? "Undo" : "Complete"}
 </button>
 
     </div>
