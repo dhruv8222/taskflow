@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Stats from "./components/Stats";
 import TaskList from "./components/TaskList";
 import AddTask from "./components/AddTask";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -54,32 +54,49 @@ function App() {
     );
   };
 
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Learn React",
-      priority: "high",
-      completed: false
-    },
-    {
-      id: 2,
-      title: "Build portfolio",
-      priority: "medium",
-      completed: false
-    },
-    {
-      id: 3,
-      title: "Practice DSA",
-      priority: "low",
-      completed: true
-    }
-  ]);
+  // const [tasks, setTasks] = useState([
+  //   {
+  //     id: 1,
+  //     title: "Learn React",
+  //     priority: "high",
+  //     completed: false
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Build portfolio",
+  //     priority: "medium",
+  //     completed: false
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Practice DSA",
+  //     priority: "low",
+  //     completed: true
+  //   }
+  // ]);
+
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+  
+    return savedTasks
+      ? JSON.parse(savedTasks)
+      : [];
+  });
 
   const [filter, setFilter] = useState("all");
 
   const [search, setSearch] = useState("");
 
   console.log(tasks);
+
+ 
+
+  useEffect(() => {
+    localStorage.setItem(
+      "tasks",
+      JSON.stringify(tasks)
+    );
+  }, [tasks]);
 
   return (
     <div className="app">
