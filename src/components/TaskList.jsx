@@ -25,17 +25,18 @@ function TaskList({
   });
 
   return (
+
     <section className="tasks">
 
       <h2>Tasks</h2>
 
-
-      <input
+      <input className="search-input"
       type="text"
       placeholder="Search tasks..."
       value={search}
       onChange={(e) => setSearch(e.target.value)}
     />
+      
 
       <div className="filters">
 
@@ -62,6 +63,15 @@ function TaskList({
           updateTask={updateTask}
         />
       ))}
+
+{filteredTasks.length === 0 && (
+  <div className="empty-state">
+    <h3>No tasks found</h3>
+    <p>
+      Try adding a new task or changing your search.
+    </p>
+  </div>
+)}
 
     </section>
   );

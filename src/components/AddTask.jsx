@@ -43,9 +43,11 @@ function AddTask({ addTask }) {
         <option value="high">High</option>
       </select>
 
+      <div className="add-task-button">
       <button type="submit">
   Add Task
 </button>
+</div>
 
     </form>
   );

@@ -70,6 +70,7 @@ const handleCancel = () => {
 
   <p>{task.priority}</p>
 
+  <div className="task-actions">
   <button
     onClick={() => setIsEditing(true)}
   >
@@ -87,6 +88,8 @@ const handleCancel = () => {
   >
     Delete
   </button>
+
+  </div>
 
 </>
 )}
