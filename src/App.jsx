@@ -36,6 +36,24 @@ function App() {
     );
   };
 
+  const updateTask = (id, updatedTitle, updatedPriority) => {
+
+    setTasks(
+      tasks.map((task) => {
+  
+        if (task.id === id) {
+          return {
+            ...task,
+            title: updatedTitle,
+            priority: updatedPriority
+          };
+        }
+  
+        return task;
+      })
+    );
+  };
+
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -77,6 +95,7 @@ function App() {
   tasks={tasks}
   deleteTask={deleteTask}
   toggleTask={toggleTask}
+  updateTask={updateTask}
   filter={filter}
   setFilter={setFilter}
   search={search}

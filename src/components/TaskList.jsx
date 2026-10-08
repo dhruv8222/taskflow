@@ -4,6 +4,7 @@ function TaskList({
   tasks,
   deleteTask,
   toggleTask,
+  updateTask,
   filter,
   setFilter,search, setSearch
 }) {
@@ -58,6 +59,7 @@ function TaskList({
           task={task}
           deleteTask={deleteTask}
           toggleTask={toggleTask}
+          updateTask={updateTask}
         />
       ))}
 
